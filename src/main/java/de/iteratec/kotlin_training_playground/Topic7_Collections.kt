@@ -58,17 +58,3 @@ fun main() {
         "key3" to "value"
     )
 }
-
-// immutable list by default, show mutable lists
-
-// mapOf
-
-// show the full power of the Kotlin stdlib: sort, take, filter, etc.
-
-// eager by default
-
-// sequences (aka streams)
-
-// more functional syntax: forEach
-
-// mapping: map, groupBy

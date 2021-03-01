@@ -1,6 +1,6 @@
 package de.iteratec.kotlin_training_playground;
 
-public class Project1MainJava {
+public class Topic1_MainJava {
 
     public static void main(String[] args) {
         System.out.println("Hello Java");

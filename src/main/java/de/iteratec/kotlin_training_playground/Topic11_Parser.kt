@@ -5,7 +5,7 @@ import java.math.BigDecimal
 import java.util.*
 
 fun main() {
-    val file = File("project10parseme.txt")
+    val file = File("kunden.txt")
 
     // step 1: print file content
     printContent(file)

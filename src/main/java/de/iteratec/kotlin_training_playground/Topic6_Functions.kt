@@ -59,12 +59,61 @@ fun main() {
         "sum of 123 and 321 is ${add(123, 321)}"
     }
     // try whether 'add' wil be called, if inside printLazy the lazyMessage()-call is *not* invoked
+
+    task1()
+    task2()
+    task3()
 }
 
-// show extension functions
 
-// show default parameters
+/**
+ * Task 1
+ * Uncomment the lines and implement the feed() function, so that the output is:
+ * 'cat was fed with fish'
+ * 'cat was fed with meat'
+ */
+private fun task1() {
+    println("#### Task 1")
 
-// show types & short-hand syntax for expressions
+    fun feed(animal: String, food: String = "meat") {
+        println("$animal was fed with $food")
+    }
 
-// show lambda: printLazy()
+    feed(animal = "cat", food = "fish")
+    feed(animal = "cat")
+}
+
+/**
+ * Task 2
+ * Implement a lambda function, that calculates the BMI of a cat (weight / (height*height)).
+ * Then call the lambda and print the BMI of Lucy. Check the inferred type of the 'bmi' variable (Cmd + Mouseover (Mac) or Ctrl + Mouseover (Windows)).
+ */
+private fun task2() {
+    println("#### Task 2")
+
+    class Cat(val name: String, val weight: Double, val height: Double)
+
+    val bmi = { weight: Double, height: Double -> weight / (height * height) }
+    val alternativeBmi = { cat: Cat -> cat.weight / (cat.height * cat.height) }
+    val lucy = Cat(name = "Lucy", weight = 8.0, height = 0.3)
+    println("bmi of ${lucy.name} is ${bmi(lucy.weight, lucy.height)}")
+    println("bmi of ${lucy.name} is ${alternativeBmi(lucy)}")
+}
+
+/**
+ * Task 3
+ * Uncomment the lines and implement an extension function isCatSound() on String,
+ * that returns true when the string is "meow" or "pur" and false otherwise.
+ */
+private fun task3() {
+    println("#### Task 3")
+
+    fun String.isCatSound(): Boolean = this == "meow" || this == "pur"
+
+    // or using the `in` keyword to find if it is contained in a collection/iterable:
+    fun String.isCatSound2(): Boolean = this in listOf("meow", "pur")
+
+    println("meow".isCatSound())
+    println("pur".isCatSound())
+    println("woof".isCatSound())
+}

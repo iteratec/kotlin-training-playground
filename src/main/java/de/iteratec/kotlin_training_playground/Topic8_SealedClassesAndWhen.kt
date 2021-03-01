@@ -46,14 +46,43 @@ fun main() {
         is UserDoesAlreadyExist -> "Error: user ${result.username} does already exist"
     }
     println(message)
+
+    task1()
+    task2()
 }
 
-// show sealed class
+/**
+ * Task 1
+ * Replace the if statements with a single when statement.
+ */
+private fun task1() {
+    println("#### Task 1")
 
-// show when usage
+    val credentials = UserCredentials(username = "bob", password = "narwhal123")
+    val createUserResult = createUser(credentials)
+    val message = when (createUserResult) {
+        is Success -> "User ${createUserResult.user.username} has been created!"
+        is OtherError -> "User could not be created."
+        else -> "Unknown result"
+    }
 
-// when as expression
+    println(message)
+}
 
-// when -> exhaustive
+/**
+ * Task 2
+ * Replace the if statements with a single when statement. Make 'passwordStrength' immutable and assign is to
+ * the value of the 'when' expression.
+ */
+private fun task2() {
+    println("#### Task 2")
 
-// extra: KDoc
+    val password = "narwhal123"
+    val passwordStrength = when (password.length) {
+        in 0..3 -> "weak"
+        in 4..12 -> "medium"
+        else -> "strong"
+    }
+
+    println("Password $password has strength '$passwordStrength'")
+}
